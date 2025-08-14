@@ -4,7 +4,21 @@
     ViewData["Title"] = "Home page";
 }
 
+<div id="banner" class="text-center">
+    <h1 id="banner-text" class="display-4">Welcome</h1>
+</div>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@section Scripts {
+    <script>
+        const bannerMessages = ["Welcome", "Everybody!"];
+        let bannerIndex = 0;
+        setInterval(() => {
+            bannerIndex = (bannerIndex + 1) % bannerMessages.length;
+            document.getElementById('banner-text').textContent = bannerMessages[bannerIndex];
+        }, 5000);
+    </script>
+}
